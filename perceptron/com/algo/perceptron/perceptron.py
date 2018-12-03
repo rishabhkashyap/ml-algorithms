@@ -19,7 +19,7 @@ class Perceptron:
             for xi, target in zip(X, y):
                 error = self.learning_rate * (target - self.predict(xi))
                 self.weights[1:] += error * xi
-                self.weights[0] += error * self.learning_rate
+                self.weights[0] += error
                 delta += int(error != 0.0)
             self.errors.append(delta)
 
