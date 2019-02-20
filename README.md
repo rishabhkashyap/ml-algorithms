@@ -5,4 +5,4 @@ Implementation of common machine learning and data science algorithm
 
 2. Perceptron algorithm
 
-3.Linear rigression using sklearn and seaborn(linear-regression2)
+  3.Linear rigression using sklearn and seaborn(linear-regression2)
