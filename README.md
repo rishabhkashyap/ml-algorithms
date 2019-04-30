@@ -11,3 +11,7 @@ Implementation of common machine learning and data science algorithm
 
 # Statistics
 1.Distributions
+
+
+# NLP
+1.Parts of speech 
