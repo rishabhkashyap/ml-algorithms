@@ -7,6 +7,8 @@ Implementation of common machine learning and data science algorithm
 3. Linear rigression using sklearn and seaborn(linear-regression2)
 4. Logistic regression
 5. KNN
+6. K means
+7. Support vector machine
 
 
 # Statistics
