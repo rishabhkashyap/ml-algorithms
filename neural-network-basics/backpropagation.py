@@ -58,17 +58,34 @@ class NeuralNetwork:
         while index >= 0:
             layer = self.__layers[index]
             if (layer == self.__layers[-1]):
+                '''
+                Find the margin of error of the output layer (output) by taking the difference of the predicted
+                 output and the actual output (y)
+                '''
                 layer.error = y - output
+                '''
+                Apply the derivative of our sigmoid activation function to the output layer error.
+                '''
                 layer.delta = layer.error * layer.get_derivative(output)
             else:
                 previous_layer = self.__layers[index + 1]
+                '''
+                Use the delta output sum of the output layer error to figure out how much our (hidden) layer contributed 
+                to the output error by performing a dot product with  weight matrix. .
+                '''
                 layer.error = np.dot(previous_layer.weights, previous_layer.delta)
+                '''
+                Calculate the delta output sum for the hidden layer by applying the derivative of 
+                 sigmoid activation function 
+                '''
                 layer.delta = layer.error * layer.get_derivative(layer.layer_output)
             index -= 1
 
+        # Updating weights
         for i in range(len(self.__layers)):
             layer = self.__layers[i]
             if (i == 0):
+                # np.atleast_2d converts 1D array to 2D array
                 input_to_use = np.atleast_2d(X).T
             else:
                 input_to_use = np.atleast_2d(self.__layers[i - 1].layer_output).T
