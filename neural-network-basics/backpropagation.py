@@ -6,6 +6,10 @@ np.random.seed(100)
 
 class Layer:
 
+    '''
+     n_input: number of input
+     n_neuron: number of neurons in a layer
+    '''
     def __init__(self, n_input, n_neuron, activation=None, weights=None, bias=None):
         self.weights = weights if weights is not None else np.random.rand(n_input, n_neuron)
         self.activation = activation if activation is not None else "sigmoid"
