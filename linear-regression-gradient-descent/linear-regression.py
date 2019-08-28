@@ -47,8 +47,10 @@ def gradient_descent(x, y, theta):
     alpha = 0.01
     iteration = 1300
 
-    x = np.matrix(x, np.float32).reshape(-1, 1)
-    y = np.matrix(y, np.float32).reshape(-1, 1)
+    # x = np.matrix(x, np.float32).reshape(-1, 1)
+    x = np.ndarray(shape=(len(x),1),dtype=np.float, buffer=np.array(x))
+    # y = np.matrix(y, np.float32).reshape(-1, 1)
+    y=np.ndarray(shape=(len(y),1),dtype=np.float,buffer=np.array(y))
     m = len(x)
 
     # calculate summation of theta TX
