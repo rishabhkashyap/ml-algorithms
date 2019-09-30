@@ -69,14 +69,14 @@ class MNISTNeuralNetwork:
                         self.cost_list.append(iteration_cost)
                         print(f"iteration  =  {i}   batch  =  {j} cost  =  {iteration_cost}   error = {err}")
 
-    def _predict(self, Xtest):
+    def predict(self, Xtest):
         n, d = Xtest.shape
         X = tf.placeholder(dtype=tf.float64, shape=(None, d), name="X")
         z1 = tf.nn.relu(tf.matmul(X, self.W1) + self.b1)
         z2 = tf.nn.relu(tf.matmul(z1, self.W2) + self.b2)
         y_predict = tf.matmul(z2, self.W3) + self.b3
 
-        return y_predict
+        return tf.arg_max(y_predict,dimension=1)
 
     def plot_cost(self):
         plt.plot(self.cost_list)
