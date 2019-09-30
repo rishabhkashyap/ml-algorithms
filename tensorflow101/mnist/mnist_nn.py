@@ -30,11 +30,11 @@ class MNISTNeuralNetwork:
 
         batch_sz = 500
         n_batches = n // batch_sz
-        w1_values = np.random.rand(d, self.nlayer1) / np.sqrt(self.nlayer1)
+        w1_values = np.random.rand(d, self.nlayer1) / np.sqrt(d)
         b1_values = np.zeros(self.nlayer1)
         w2_values = np.random.rand(self.nlayer1, self.nlayer2) / np.sqrt(self.nlayer1)
         b2_values = np.zeros(self.nlayer2)
-        w3_values = np.random.rand(self.nlayer2, self.n_out_layer) / np.sqrt(self.nlayer1)
+        w3_values = np.random.rand(self.nlayer2, self.n_out_layer) / np.sqrt(self.nlayer2)
         b3_values = np.zeros(self.n_out_layer)
         X = tf.placeholder(dtype=tf.float64, shape=(None, d), name="X")
         y = tf.placeholder(dtype=tf.float64, shape=(None, self.n_out_layer), name="y")
