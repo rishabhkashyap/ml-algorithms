@@ -58,7 +58,7 @@ class MNISTNeuralNetwork:
             for i in range(25):
                 for j in range(n_batches):
                     start = j * batch_sz
-                    end = (j * batch_sz) + batch_sz
+                    end = start + batch_sz
                     Xbatch = Xtrain[start:end, ]
                     ybatch = ytrain[start:end, ]
                     session.run(optimizer, feed_dict={X: Xbatch, y: ybatch})
