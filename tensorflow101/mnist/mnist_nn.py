@@ -68,6 +68,8 @@ class MNISTNeuralNetwork:
                         err = self.error_rate(prediction_iter, ytest)
                         self.cost_list.append(iteration_cost)
                         print(f"iteration  =  {i}   batch  =  {j} cost  =  {iteration_cost}   error = {err}")
+                        # below statement converts tensort into numpy array
+                        # print(self.W1.eval())
 
     def predict(self, Xtest):
         n, d = Xtest.shape
